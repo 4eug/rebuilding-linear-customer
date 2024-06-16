@@ -1,20 +1,92 @@
-import type { Config } from "tailwindcss";
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: '"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif',
+      },
+      fontSize: {
+        xs: "1.3rem",
+        sm: "1.4rem",
+        md: "1.6rem",
+        lg: "1.8rem",
+        xl: ["2.2rem", "1.3"],
+        "2xl": "2.4rem",
+        "3xl": "2.6rem",
+        "4xl": "3.2rem",
+        "5xl": "4rem",
+        "6xl": ["4.4rem", "1.1"],
+        "7xl": ["5rem", "1.1"],
+        "8xl": ["6rem", "1.1"],
+      },
+      colors: {
+        transparent: "transparent",
+        white: "#fff",
+        "off-white": "#f7f8f8",
+        "transparent-white": "rgba(255, 255, 255, 0.08)",
+        background: "#000212",
+        grey: "#858699",
+        "grey-dark": "#222326",
+        "primary-text": "#b4bcd0",
+      },
+      spacing: {
+        0: "0",
+        1: "0.4rem",
+        2: "0.8rem",
+        3: "1.2rem",
+        4: "1.6rem",
+        5: "2rem",
+        6: "2.4rem",
+        7: "2.8rem",
+        8: "3.2rem",
+        9: "3.6rem",
+        10: "4rem",
+        11: "4.4rem",
+        12: "4.8rem",
+        13: "5.2rem",
+        14: "5.6rem",
+        15: "6rem",
+        16: "6.4rem",
+        "navigation-height": "var(--navigation-height)",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "primary-gradient":
+          "linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%)",
+        "radial-faded":
+          "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
+      },
+      boxShadow: {
+        primary: "rgb(80 63 205 / 50%) 0px 1px 40px",
+      },
+      transitionDelay: {
+        0: "0ms",
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
-export default config;
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
