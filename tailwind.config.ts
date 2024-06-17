@@ -40,6 +40,7 @@ module.exports = {
         background: "#000212",
         grey: "#858699",
         "grey-dark": "#222326",
+        "footer-grey": "#b4bcd0",
         "primary-text": "#b4bcd0",
       },
       spacing: {
