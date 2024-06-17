@@ -1,4 +1,5 @@
 
+import { Header } from "@/components/ui/header";
 import "../app/globals.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div>
+          <Header/>
           <main className="pt-navigation-height">
             {children}
           </main>
