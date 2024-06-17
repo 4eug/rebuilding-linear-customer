@@ -29,6 +29,18 @@ export default function Companies() {
       <ArcLogo  />
       <OpenSeaLogo />
       <PitchLogo />
+      <DescriptLogo  />
+      <AlanLogo />
+      <OpenSeaLogo />
+      <RetoolLogo />
+      <CashAppLogo />
+      <RampLogo />
+      <LoomLogo />
+      <RaycastLogo />
+      <ArcLogo  />
+      <MercuryLogo />
+      <VercelLogo />
+      <PitchLogo />
     </div>
   </>
   )
