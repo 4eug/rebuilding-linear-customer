@@ -22,6 +22,7 @@ export const HeroTitle = ({ children, className }: HeroElementProps) => {
   );
 };
 
+
 export const HeroSubtitle = ({ children, className }: HeroElementProps) => {
   return (
     <p
@@ -49,5 +50,5 @@ export const HeroIndicator = ({ children, className }: HeroElementProps) => {
 };
 
 export const Hero = ({ children }: HeroProps) => {
-  return <div className="text-center">{children}</div>;
+  return <div className="text-center pt-28 lg:pt-56">{children}</div>;
 };
