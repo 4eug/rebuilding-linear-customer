@@ -10,7 +10,7 @@ import classNames from "classnames";
 export default function Home() {
   return (
     <>
-    <div className="overflow-hidden pb-[16.4rem] md:pb-[25.6rem]">
+    <div className="overflow-hidden pb-[1rem] md:pb-[10rem]">
     <Container>
       <HeroSection/>
     </Container>
@@ -39,7 +39,7 @@ export default function Home() {
        <Container>
         <Companies/>
        </Container>
-       <Container className="py-[200px] md:pt-[200px] bg-you-belong bg-cover bg-center opa">
+       <Container className="md:pt-[20px] bg-you-belong bg-cover bg-center">
           <YouBelong />
       </Container>
     </div>
