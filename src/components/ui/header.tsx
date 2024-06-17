@@ -60,13 +60,13 @@ export const Header = () => {
                 <li>
                   <Link href="#">Product</Link>
                 </li>
-                <li>
+                <li className="md:hidden lg:block">
                   <Link href="#">Method</Link>
                 </li>
-                <li className="">
+                <li className="md:hidden lg:block">
                   <Link href="#">Customers</Link>
                 </li>
-                <li className="">
+                <li className="md:hidden lg:block">
                   <Link href="#">Changelog</Link>
                 </li>
                 <li>
@@ -90,7 +90,6 @@ export const Header = () => {
           <Button href="#" variant="teritary">Sign up</Button>
           <button
             className="md:hidden"
-            onClick={() => setHamburgerMenuIsOpen((open) => !open)}
           >
             <span className="sr-only">Toggle menu</span>
             <HamburgerIcon />
