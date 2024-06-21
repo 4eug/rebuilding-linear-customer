@@ -2,6 +2,12 @@
 import { Header } from "@/components/ui/header";
 import "../app/globals.css";
 import { Footer } from "@/components/ui/footer";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Rebuilding Linear Customer Page',
+  description: 'Rebuilding Linear Customer Page',
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
